@@ -14,3 +14,12 @@ allprojects {
         mavenCentral()
     }
 }
+
+// From http://stackoverflow.com/a/36939917/262789
+if (JavaVersion.current().isJava8Compatible()) {
+    allprojects {
+        tasks.withType(Javadoc) {
+            options.addStringOption('Xdoclint:none', '-quiet')
+        }
+    }
+}
